@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
-
+import logo from "/assets/logo.png";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
-    ["Home", "home"],
     ["About", "about"],
     ["Services", "services"],
     ["Portfolio", "portfolio"],
@@ -32,6 +31,7 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3 md:justify-start">
+        {/* Mobile Navbar */}
         <div className="flex w-full md:hidden items-center justify-between">
           <button
             className="btn btn-ghost text-xl"
@@ -39,22 +39,23 @@ export default function Navbar() {
           >
             ☰
           </button>
-          <div
-            className="text-2xl font-bold cursor-pointer"
+          <img
+            src={logo}
+            alt="Milink Logo"
+            className="h-10 cursor-pointer"
             onClick={() => scrollToSection("home")}
-          >
-            MILINK
-          </div>
+          />
           <ThemeToggle />
         </div>
 
+        {/* Desktop Navbar */}
         <div className="hidden md:flex w-full items-center justify-between">
-          <div
-            className="text-2xl font-bold cursor-pointer"
+          <img
+            src={logo}
+            alt="Milink Logo"
+            className="h-12 cursor-pointer"
             onClick={() => scrollToSection("home")}
-          >
-            MILINK
-          </div>
+          />
           <ul className="flex gap-6">
             {navItems.map(([name, id]) => (
               <li key={id}>
@@ -71,10 +72,16 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Sidebar */}
       {open && (
         <div className="md:hidden fixed top-0 left-0 h-screen w-64 bg-base-100 shadow-lg p-6 z-40 transition-transform">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold">Menu</h2>
+            <img
+              src={logo}
+              alt="Milink Logo"
+              className="h-10 cursor-pointer"
+              onClick={() => scrollToSection("home")}
+            />
             <button
               className="btn btn-sm btn-ghost"
               onClick={() => setOpen(false)}
