@@ -3,7 +3,7 @@ import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || "business"
+    localStorage.getItem("theme") || "emerald"
   );
 
   useEffect(() => {

@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
 import logo from "/assets/logo.png";
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isDark, setIsDark] = useState(false); // ✅ Track if dark theme is active
 
   const navItems = [
     ["About", "about"],
@@ -16,7 +18,25 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // ✅ Detect theme changes dynamically
+    const observer = new MutationObserver(() => {
+      const theme = document.documentElement.getAttribute("data-theme");
+      setIsDark(theme === "business"); // Dark mode check
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    // Initialize theme state
+    const initialTheme = document.documentElement.getAttribute("data-theme");
+    setIsDark(initialTheme === "business");
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   const scrollToSection = (id) => {
@@ -42,7 +62,9 @@ export default function Navbar() {
           <img
             src={logo}
             alt="Milink Logo"
-            className="h-10 cursor-pointer"
+            className={`h-10 cursor-pointer transition-all duration-300 ${
+              isDark ? "brightness-150 invert" : "brightness-100"
+            }`}
             onClick={() => scrollToSection("home")}
           />
           <ThemeToggle />
@@ -53,7 +75,9 @@ export default function Navbar() {
           <img
             src={logo}
             alt="Milink Logo"
-            className="h-12 cursor-pointer"
+            className={`h-12 cursor-pointer transition-all duration-300 ${
+              isDark ? "brightness-150 invert" : "brightness-100"
+            }`}
             onClick={() => scrollToSection("home")}
           />
           <ul className="flex gap-6">
@@ -79,7 +103,9 @@ export default function Navbar() {
             <img
               src={logo}
               alt="Milink Logo"
-              className="h-10 cursor-pointer"
+              className={`h-10 cursor-pointer transition-all duration-300 ${
+                isDark ? "brightness-150 invert" : "brightness-100"
+              }`}
               onClick={() => scrollToSection("home")}
             />
             <button
