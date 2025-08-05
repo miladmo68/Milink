@@ -5,7 +5,7 @@ import logo from "/assets/logo.png";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(false); // ✅ Track if dark theme is active
+  const [isDark, setIsDark] = useState(false);
 
   const navItems = [
     ["About", "about"],
@@ -19,17 +19,15 @@ export default function Navbar() {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
 
-    // ✅ Detect theme changes dynamically
     const observer = new MutationObserver(() => {
       const theme = document.documentElement.getAttribute("data-theme");
-      setIsDark(theme === "business"); // Dark mode check
+      setIsDark(theme === "business");
     });
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["data-theme"],
     });
 
-    // Initialize theme state
     const initialTheme = document.documentElement.getAttribute("data-theme");
     setIsDark(initialTheme === "business");
 
@@ -80,19 +78,26 @@ export default function Navbar() {
             }`}
             onClick={() => scrollToSection("home")}
           />
-          {/* ✅ Center Menu with matching border color */}
-          <ul className="flex gap-6 border border-base-content text-base-content rounded-full px-8 py-2 shadow-sm transition-colors">
+
+          {/* ✅ Center Menu with border & underline effect */}
+          <ul className="flex items-center gap-6 border border-base-content text-base-content rounded-full px-6  pt-3  shadow-sm transition-colors">
             {navItems.map(([name, id]) => (
               <li key={id}>
                 <button
                   onClick={() => scrollToSection(id)}
-                  className="btn btn-ghost"
+                  className="btn btn-ghost px-2 py-1 relative 
+                  after:content-[''] after:block after:w-full 
+                  after:h-[1.5px] after:bg-current after:scale-x-0 
+                  hover:after:scale-x-100 after:origin-right 
+                  hover:after:origin-left after:transition-transform 
+                  after:duration-300 after:mt-[-20px]"
                 >
                   {name}
                 </button>
               </li>
             ))}
           </ul>
+
           <ThemeToggle />
         </div>
       </div>
