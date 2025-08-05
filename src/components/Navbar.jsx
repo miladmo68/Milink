@@ -52,7 +52,7 @@ export default function Navbar() {
         {/* Mobile Navbar */}
         <div className="flex w-full md:hidden items-center justify-between">
           <button
-            className="btn btn-ghost text-xl"
+            className="btn btn-ghost hover:bg-transparent text-xl" // ✅ hover background removed
             onClick={() => setOpen(!open)}
           >
             ☰
@@ -79,13 +79,13 @@ export default function Navbar() {
             onClick={() => scrollToSection("home")}
           />
 
-          {/* ✅ Center Menu with border & underline effect */}
-          <ul className="flex items-center gap-6 border border-base-content text-base-content rounded-full px-6  pt-3  shadow-sm transition-colors">
+          {/* ✅ Center Menu with underline effect */}
+          <ul className="flex items-center gap-6 border border-base-content text-base-content rounded-full px-6 pt-3 shadow-sm transition-colors">
             {navItems.map(([name, id]) => (
               <li key={id}>
                 <button
                   onClick={() => scrollToSection(id)}
-                  className="btn btn-ghost px-2 py-1 relative 
+                  className="btn btn-ghost hover:bg-transparent px-2 py-1 relative 
                   after:content-[''] after:block after:w-full 
                   after:h-[1.5px] after:bg-current after:scale-x-0 
                   hover:after:scale-x-100 after:origin-right 
@@ -115,7 +115,7 @@ export default function Navbar() {
               onClick={() => scrollToSection("home")}
             />
             <button
-              className="btn btn-sm btn-ghost"
+              className="btn btn-sm btn-ghost hover:bg-transparent"
               onClick={() => setOpen(false)}
             >
               ✕
@@ -126,7 +126,7 @@ export default function Navbar() {
               <li key={id}>
                 <button
                   onClick={() => scrollToSection(id)}
-                  className="btn btn-ghost w-full justify-start"
+                  className="btn btn-ghost hover:bg-transparent w-full justify-start"
                 >
                   {name}
                 </button>
