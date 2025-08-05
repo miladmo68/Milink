@@ -52,7 +52,7 @@ export default function Navbar() {
         {/* Mobile Navbar */}
         <div className="flex w-full md:hidden items-center justify-between">
           <button
-            className="btn btn-ghost hover:bg-transparent text-xl" // ✅ hover background removed
+            className="btn btn-ghost hover:bg-transparent text-xl"
             onClick={() => setOpen(!open)}
           >
             ☰
