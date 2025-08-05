@@ -13,7 +13,7 @@ export default function Hero() {
       id="home"
       className="h-screen bg-cover bg-center flex flex-col justify-center items-center text-white"
       style={{
-        backgroundImage: "url('/assets/2.jpg')",
+        backgroundImage: "url('/assets/1.jpg')",
       }}
     >
       <motion.h1
