@@ -45,7 +45,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 shadow ${
-        scrolled ? "bg-base-100" : "bg-base-100/90 backdrop-blur-md"
+        scrolled ? "bg-base-300" : "bg-base-300/90 backdrop-blur-md"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3 md:justify-start">

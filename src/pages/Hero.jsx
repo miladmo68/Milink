@@ -79,7 +79,7 @@ export default function Hero() {
           }
           className="mt-8 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full font-semibold shadow-lg hover:from-blue-700 hover:to-blue-900 transition-transform"
         >
-          Our Services
+          Get Started
         </motion.button>
       </motion.div>
 
@@ -97,56 +97,3 @@ export default function Hero() {
     </section>
   );
 }
-
-// import { motion } from "framer-motion";
-
-// export default function Hero() {
-//   return (
-//     <section
-//       className="h-screen bg-cover bg-center flex flex-col justify-center items-center text-white relative"
-//       style={{ backgroundImage: "url('/assets/1.jpg')" }}
-//     >
-//       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-//       <motion.div
-//         initial="hidden"
-//         animate="visible"
-//         variants={{
-//           hidden: {},
-//           visible: { transition: { delayChildren: 0.6, staggerChildren: 0.3 } },
-//         }}
-//         className="relative z-10 text-center px-4"
-//       >
-//         <motion.h1
-//           variants={{
-//             hidden: { opacity: 0, y: -60 },
-//             visible: { opacity: 1, y: 0 },
-//           }}
-//           className="text-5xl md:text-7xl font-serif tracking-tight"
-//         >
-//           Build Your Digital Presence
-//         </motion.h1>
-//         <motion.p
-//           variants={{
-//             hidden: { opacity: 0, y: 40 },
-//             visible: { opacity: 1, y: 0 },
-//           }}
-//           className="mt-6 text-xl md:text-2xl font-sans"
-//         >
-//           Websites, Branding & Digital Solutions
-//         </motion.p>
-//         <motion.button
-//           variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-//           whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(0,0,0,0.3)" }}
-//           onClick={() =>
-//             document
-//               .getElementById("services")
-//               .scrollIntoView({ behavior: "smooth" })
-//           }
-//           className="mt-8 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full font-semibold relative overflow-hidden"
-//         >
-//           <span>Get Started</span>
-//         </motion.button>
-//       </motion.div>
-//     </section>
-//   );
-// }
