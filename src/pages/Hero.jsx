@@ -48,7 +48,7 @@ export default function Hero() {
           }}
           className="text-5xl md:text-7xl font-serif tracking-tight drop-shadow-2xl"
         >
-          Web Design & Branding for Your Digital Presence
+          Build Your Digital Presence
         </motion.h1>
 
         <motion.p
@@ -79,7 +79,7 @@ export default function Hero() {
           }
           className="mt-8 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full font-semibold shadow-lg hover:from-blue-700 hover:to-blue-900 transition-transform"
         >
-          Get Started
+          Our Services
         </motion.button>
       </motion.div>
 
@@ -94,8 +94,6 @@ export default function Hero() {
         animate={{ y: [0, -35, 0], opacity: [0.7, 1, 0.7] }}
         transition={{ duration: 7, repeat: Infinity }}
       />
-
-      {/* Client Logos Section */}
     </section>
   );
 }
