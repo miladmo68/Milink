@@ -1,19 +1,11 @@
+import { THEMES } from "./src/config/themeConfig.js";
+
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: { extend: {} },
-  darkMode: false,
+  darkMode: "class",
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["nord", "business"], // ✅ only here
+    themes: [THEMES.light, THEMES.dark],
   },
 };
-
-// export default {
-//   content: ["./index.html", "./src/**/*.{js,jsx}"],
-//   theme: { extend: {} },
-//   darkMode: false, // ✅ disables automatic dark mode detection
-//   plugins: [require("daisyui")],
-//   daisyui: {
-//     themes: ["nord", "business"], // ✅ light first, dark second
-//   },
-// };
