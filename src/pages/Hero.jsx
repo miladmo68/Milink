@@ -5,16 +5,27 @@ import "aos/dist/aos.css";
 
 export default function Hero() {
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // ✅ Detect mobile
   const videoSrc = "/assets/1.mp4"; // ✅ Video source defined once
+  const fallbackImage =
+    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80"; // Fallback image for mobile
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
 
-    // ✅ Lazy load video
-    const video = document.createElement("video");
-    video.src = videoSrc;
-    video.preload = "metadata";
-    video.onloadeddata = () => setVideoLoaded(true);
+    // ✅ Detect mobile device
+    const checkMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(
+      navigator.userAgent
+    );
+    setIsMobile(checkMobile);
+
+    if (!checkMobile) {
+      // ✅ Lazy load video only for non-mobile
+      const video = document.createElement("video");
+      video.src = videoSrc;
+      video.preload = "metadata";
+      video.onloadeddata = () => setVideoLoaded(true);
+    }
   }, [videoSrc]);
 
   return (
@@ -22,17 +33,27 @@ export default function Hero() {
       id="home"
       className="relative h-screen flex flex-col justify-center items-center text-white overflow-hidden"
     >
-      {/* ✅ Background Video */}
-      {videoLoaded && (
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
+      {/* ✅ Show video on desktop, image fallback on mobile */}
+      {!isMobile ? (
+        videoLoaded && (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            poster={fallbackImage} // Poster shown until video loads
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+        )
+      ) : (
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${fallbackImage})`,
+          }}
+        ></div>
       )}
 
       {/* Dark Overlay */}
