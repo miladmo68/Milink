@@ -23,7 +23,7 @@ export default function Hero() {
       className="relative h-screen flex flex-col justify-center items-center text-white overflow-hidden"
     >
       {/* ✅ Background Video */}
-      {videoLoaded ? (
+      {videoLoaded && (
         <video
           autoPlay
           loop
@@ -33,15 +33,6 @@ export default function Hero() {
         >
           <source src={videoSrc} type="video/mp4" />
         </video>
-      ) : (
-        // ✅ Low-res fallback image while video loads
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80')",
-          }}
-        ></div>
       )}
 
       {/* Dark Overlay */}
