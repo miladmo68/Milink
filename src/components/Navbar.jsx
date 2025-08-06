@@ -102,9 +102,9 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Sidebar */}
+      {/* ✅ Mobile Sidebar (Full Width) */}
       {open && (
-        <div className="md:hidden fixed top-0 left-0 h-screen w-64 bg-base-100 shadow-lg p-6 z-40 transition-transform">
+        <div className="md:hidden fixed top-0 left-0 h-screen w-full bg-base-100 shadow-lg p-6 z-40 transition-transform">
           <div className="flex justify-between items-center mb-4">
             <img
               src={logo}
@@ -121,7 +121,7 @@ export default function Navbar() {
               ✕
             </button>
           </div>
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col gap-4 text-lg">
             {navItems.map(([name, id]) => (
               <li key={id}>
                 <button
