@@ -5,29 +5,18 @@ import "aos/dist/aos.css";
 
 export default function Hero() {
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   // ✅ WebM video only
   const videoWebM = "/assets/1.webm";
-  const fallbackImage =
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80"; // Mobile fallback
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
 
-    // ✅ Detect mobile devices
-    const checkMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(
-      navigator.userAgent
-    );
-    setIsMobile(checkMobile);
-
-    if (!checkMobile) {
-      // ✅ Lazy load video only on desktop
-      const video = document.createElement("video");
-      video.src = videoWebM;
-      video.preload = "metadata";
-      video.onloadeddata = () => setVideoLoaded(true);
-    }
+    // ✅ Lazy load video (desktop & mobile)
+    const video = document.createElement("video");
+    video.src = videoWebM;
+    video.preload = "metadata";
+    video.onloadeddata = () => setVideoLoaded(true);
   }, [videoWebM]);
 
   return (
@@ -35,29 +24,18 @@ export default function Hero() {
       id="home"
       className="relative h-screen flex flex-col justify-center items-center text-white overflow-hidden"
     >
-      {/* ✅ Desktop WebM Video */}
-      {!isMobile ? (
-        videoLoaded && (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster={fallbackImage}
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src={videoWebM} type="video/webm" />
-            Your browser does not support the video tag.
-          </video>
-        )
-      ) : (
-        /* ✅ Mobile fallback image */
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${fallbackImage})`,
-          }}
-        ></div>
+      {/* ✅ Background WebM Video (Desktop & Mobile) */}
+      {videoLoaded && (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={videoWebM} type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
       )}
 
       {/* Dark Overlay */}
