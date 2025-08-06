@@ -4,7 +4,7 @@ import { THEMES } from "../config/themeConfig";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || THEMES.light
+    localStorage.getItem("theme") || THEMES.dark
   );
 
   useEffect(() => {
