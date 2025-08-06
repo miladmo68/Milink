@@ -74,7 +74,7 @@ export default function Navbar() {
           {/* ✅ Desktop Brand Logo */}
           <h1
             onClick={() => scrollToSection("home")}
-            className="flex items-center gap-2 text-5xl tracking-widest cursor-pointer select-none transition duration-300 hover:scale-105"
+            className="flex items-center gap-2 text-3xl font-extrabold tracking-widest cursor-pointer select-none transition duration-300 hover:scale-105"
           >
             <LinkIcon className="w-8 h-8 text-primary" />
             MILINK
