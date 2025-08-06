@@ -6,7 +6,6 @@ body {
   @apply transition-colors duration-500;
 }
 /* ✅ Add this to index.css or global.css */
-/* ✅ Animations */
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
@@ -60,11 +59,9 @@ body {
   background-clip: text;
   animation: shimmer 4s ease-in-out infinite;
   position: relative;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
-    0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(173, 216, 230, 0.4);
 }
 
-/* ✅ Shine Inside Characters */
+/* ✅ Inner shine inside text */
 .shine-inside {
   position: absolute;
   inset: 0;
@@ -80,7 +77,18 @@ body {
   color: transparent;
 }
 
-/* ✅ Button shimmer text */
+/* ✅ Shadow in Dark Mode */
+.text-glow-dark {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
+    0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(173, 216, 230, 0.4);
+}
+
+/* ✅ Shadow in Light Mode */
+.text-glow-light {
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.2), 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Button shimmer */
 .shimmer-btn-text {
   display: inline-block;
   background: linear-gradient(
@@ -98,7 +106,7 @@ body {
   animation: shimmer 2.5s linear infinite;
 }
 
-/* ✅ Button overlay */
+/* ✅ Button shimmer overlay */
 .shimmer-overlay-btn {
   position: absolute;
   top: 0;
