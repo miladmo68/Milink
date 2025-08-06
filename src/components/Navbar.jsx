@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isDark, setIsDark] = useState(false);
 
   const navItems = [
-    ["About", "about"],
+    // ["About", "about"],
     ["Services", "services"],
     ["Portfolio", "portfolio"],
     ["Testimonials", "testimonials"],
