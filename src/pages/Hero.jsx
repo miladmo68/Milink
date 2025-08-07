@@ -55,7 +55,7 @@ export default function Hero() {
           className={`absolute inset-0 w-full h-full object-cover transition duration-700 ${
             isDark
               ? "brightness-100 contrast-100"
-              : "brightness-[1.6] contrast-95 saturate-110"
+              : "brightness-90 contrast-105 saturate-100"
           }`}
         >
           <source src={videoWebM} type="video/webm" />

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { LinkIcon } from "@heroicons/react/24/outline";
 import ThemeToggle from "./ThemeToggle";
+import { THEMES } from "../config/themeConfig";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -18,17 +19,18 @@ export default function Navbar() {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
 
-    const observer = new MutationObserver(() => {
+    const updateTheme = () => {
       const theme = document.documentElement.getAttribute("data-theme");
-      setIsDark(theme === "business");
-    });
+      setIsDark(theme === THEMES.dark);
+    };
+
+    const observer = new MutationObserver(updateTheme);
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["data-theme"],
     });
 
-    const initialTheme = document.documentElement.getAttribute("data-theme");
-    setIsDark(initialTheme === "business");
+    updateTheme();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -44,7 +46,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 shadow ${
-        scrolled ? "bg-base-300" : "bg-base-300/60 backdrop-blur-md"
+        scrolled ? "bg-base-300" : "bg-base-300/70 backdrop-blur-md"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3 md:justify-start">
@@ -57,7 +59,7 @@ export default function Navbar() {
             ☰
           </button>
 
-          {/* ✅ Mobile Brand Logo */}
+          {/* ✅ Mobile Logo */}
           <h1
             onClick={() => scrollToSection("home")}
             className="flex items-center gap-2 text-2xl font-bold tracking-widest cursor-pointer select-none transition duration-300 hover:scale-105"
@@ -71,7 +73,7 @@ export default function Navbar() {
 
         {/* ✅ Desktop Navbar */}
         <div className="hidden md:flex w-full items-center justify-between">
-          {/* ✅ Desktop Brand Logo */}
+          {/* ✅ Desktop Logo */}
           <h1
             onClick={() => scrollToSection("home")}
             className="flex items-center gap-2 text-2xl font-bold tracking-widest cursor-pointer select-none transition duration-300 hover:scale-105"
@@ -80,7 +82,7 @@ export default function Navbar() {
             MILINK
           </h1>
 
-          {/* ✅ Navigation Links */}
+          {/* ✅ Navigation */}
           <ul className="flex items-center gap-6 border border-base-content text-base-content rounded-full px-6 pt-3 shadow-sm transition-colors">
             {navItems.map(([name, id]) => (
               <li key={id}>
