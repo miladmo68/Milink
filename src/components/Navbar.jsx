@@ -48,15 +48,15 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 shadow ${
+      className={`fixed w-full z-50 shadow ${
         scrolled ? "bg-base-300" : "bg-base-300"
-      }`}
+      } transition-colors duration-500`} // ✅ فقط این اضافه شد
       style={{ minHeight: navBarHeight }}
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3 md:justify-start">
         {/* --- Mobile Navbar Top Bar (Always visible) --- */}
         <div
-          className="flex w-full md:hidden items-center justify-between bg-base-300"
+          className="flex w-full md:hidden items-center justify-between bg-base-300 transition-colors duration-500"
           style={{ minHeight: navBarHeight }}
         >
           {/* Theme Toggle Button */}
@@ -124,8 +124,7 @@ export default function Navbar() {
       <div
         className={`
           md:hidden fixed left-0 mt-5
-          w-full ${mobileMenuBgClass}
-          transition-all duration-500 ease-in-out
+          w-full ${mobileMenuBgClass} transition-colors duration-500
           ${
             open
               ? "opacity-100 pointer-events-auto"
@@ -172,7 +171,7 @@ export default function Navbar() {
 //     ["Contact", "contact"],
 //   ];
 
-//   // Navbar height for mobile
+//   // Mobile navbar height
 //   const navBarHeight = 56;
 
 //   useEffect(() => {
@@ -183,13 +182,11 @@ export default function Navbar() {
 //       const theme = document.documentElement.getAttribute("data-theme");
 //       setIsDark(theme === THEMES.dark);
 //     };
-
 //     const observer = new MutationObserver(updateTheme);
 //     observer.observe(document.documentElement, {
 //       attributes: true,
 //       attributeFilter: ["data-theme"],
 //     });
-
 //     updateTheme();
 
 //     return () => {
@@ -202,6 +199,8 @@ export default function Navbar() {
 //     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 //     setOpen(false);
 //   };
+
+//   const mobileMenuBgClass = "bg-base-300";
 
 //   return (
 //     <nav
@@ -216,8 +215,8 @@ export default function Navbar() {
 //           className="flex w-full md:hidden items-center justify-between bg-base-300"
 //           style={{ minHeight: navBarHeight }}
 //         >
-//           {/* Theme Toggle Button (box) */}
-//           <div className="border border-base-content rounded-lg p-2.5 flex items-center justify-center mr-2">
+//           {/* Theme Toggle Button */}
+//           <div className="h-12 w-12 border border-base-content rounded-lg flex items-center justify-center mr-2">
 //             <ThemeToggle iconSize={7} />
 //           </div>
 //           {/* Logo */}
@@ -230,7 +229,7 @@ export default function Navbar() {
 //           </h1>
 //           {/* Hamburger / X Icon */}
 //           <button
-//             className="border border-base-content rounded-lg p-2.5 flex items-center justify-center ml-2"
+//             className="h-12 w-12 border border-base-content rounded-lg flex items-center justify-center ml-2"
 //             onClick={() => setOpen(!open)}
 //             aria-label={open ? "Close mobile menu" : "Open mobile menu"}
 //           >
@@ -270,17 +269,18 @@ export default function Navbar() {
 //               </li>
 //             ))}
 //           </ul>
-//           {/* Theme Toggle (no border on desktop) */}
+//           {/* Theme Toggle (Desktop) */}
 //           <div className="ml-6 flex items-center">
 //             <ThemeToggle iconSize={6} />
 //           </div>
 //         </div>
 //       </div>
 
-//       {/* --- Mobile Menu slides below navbar, with margin --- */}
+//       {/* --- Mobile Menu slides below navbar, always solid and in sync with theme --- */}
 //       <div
 //         className={`
-//           md:hidden fixed left-0 w-full
+//           md:hidden fixed left-0 mt-5
+//           w-full ${mobileMenuBgClass}
 //           transition-all duration-500 ease-in-out
 //           ${
 //             open
@@ -290,12 +290,11 @@ export default function Navbar() {
 //           z-40
 //         `}
 //         style={{
-//           top: navBarHeight + 6, // push menu a bit lower than bar (6px more for visible separation)
-//           height: `calc(100vh - ${navBarHeight + 6}px)`,
-//           background: "var(--b3)", // matches bg-base-300 (daisyUI var)
+//           top: navBarHeight,
+//           height: `calc(100vh - ${navBarHeight}px)`,
 //         }}
 //       >
-//         <ul className="flex flex-col items-center justify-center gap-6 mt-6">
+//         <ul className="flex flex-col items-center justify-center gap-6 mt-8">
 //           {navItems.map(([name, id]) => (
 //             <li key={id}>
 //               <button
