@@ -19,7 +19,10 @@ export default function ThemeToggle({ iconSize = 5 }) {
   const iconClass = `w-${iconSize} h-${iconSize}`;
 
   return (
-    <button onClick={toggleTheme} className="btn btn-sm btn-ghost">
+    <button
+      onClick={toggleTheme}
+      className="p-2  hover:bg-transparent focus:outline-none "
+    >
       {theme === THEMES.dark ? (
         <MoonIcon className={iconClass} />
       ) : (
