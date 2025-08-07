@@ -10,7 +10,7 @@ export default function Hero() {
     localStorage.getItem("theme") || THEMES.light
   );
 
-  const videoWebM = "/assets/4.mp4";
+  const videoMP4 = "/assets/4.mp4";
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -28,12 +28,12 @@ export default function Hero() {
     });
 
     const video = document.createElement("video");
-    video.src = videoWebM;
-    video.preload = "metadata";
+    video.src = videoMP4;
+    video.preload = "auto";
     video.onloadeddata = () => setVideoLoaded(true);
 
     return () => observer.disconnect();
-  }, [videoWebM]);
+  }, [videoMP4]);
 
   const isDark = theme === THEMES.dark;
 
@@ -58,7 +58,7 @@ export default function Hero() {
               : "brightness-90 contrast-105 saturate-100"
           }`}
         >
-          <source src={videoWebM} type="video/webm" />
+          <source src={videoMP4} type="video/mp4" />
         </motion.video>
       )}
 
@@ -83,7 +83,7 @@ export default function Hero() {
         }}
         className="relative z-10 text-center px-4"
       >
-        {/* ✅ Title with shimmer + glow + inner shine */}
+        {/* ✅ Title */}
         <motion.h1
           variants={{
             hidden: { opacity: 0, y: -100 },
