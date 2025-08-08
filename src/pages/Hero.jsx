@@ -98,8 +98,8 @@ export default function Hero() {
           }}
           className="mt-6 text-xl md:text-2xl font-light max-w-2xl mx-auto drop-shadow-lg"
         >
-          Elevate your business with cutting-edge websites, premium branding,
-          and digital growth strategies.
+          Grow your business with high-performing websites, premium branding,
+          and proven digital strategies that convert visitors into customers.
         </motion.p>
 
         <motion.button
