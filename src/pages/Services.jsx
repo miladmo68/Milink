@@ -21,14 +21,15 @@ export default function Services() {
       badgeTip:
         "Our most requested service — a perfect start for your online presence.",
     },
+
     {
-      title: "SEO Optimization",
-      desc: "Rank higher on Google, attract quality traffic, and grow your reach.",
-      icon: MagnifyingGlassIcon,
-      badge: "High ROI",
-      badgeTip:
-        "Delivers long-term value by attracting organic, ready-to-buy visitors.",
+      title: "Website Maintenance & Redesign",
+      desc: "Ensure your site runs smoothly, stays secure, and wows visitors year-round.",
+      icon: WrenchScrewdriverIcon,
+      badge: "Popular",
+      badgeTip: "Essential for keeping your website healthy and up to date.",
     },
+
     {
       title: "E-Commerce Solutions",
       desc: "Secure, scalable stores built for higher sales and retention.",
@@ -42,12 +43,14 @@ export default function Services() {
   // More services (ordered by business impact)
   const extraServices = [
     {
-      title: "Website Maintenance & Redesign",
-      desc: "Keep your site fresh, secure, and fast—with modern design upgrades.",
-      icon: WrenchScrewdriverIcon,
-      badge: "Popular",
-      badgeTip: "Essential for keeping your website healthy and up to date.",
+      title: "SEO Optimization",
+      desc: "Rank higher on Google, attract quality traffic, and grow your reach.",
+      icon: MagnifyingGlassIcon,
+      badge: "High ROI",
+      badgeTip:
+        "Delivers long-term value by attracting organic, ready-to-buy visitors.",
     },
+
     {
       title: "UI/UX Design",
       desc: "Intuitive, user-friendly interfaces that keep your audience engaged.",
