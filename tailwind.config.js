@@ -3,11 +3,7 @@ import { THEMES } from "./src/config/themeConfig.js";
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
-    extend: {
-      fontFamily: {
-        playfair: ["Playfair Display", "serif"],
-      },
-    },
+    extend: {},
   },
   darkMode: "class",
   plugins: [require("daisyui")],
