@@ -115,7 +115,10 @@ export default function Services() {
           </div>
 
           <div className="mt-10">
-            <a href="#more-services" className="btn btn-ghost">
+            <a
+              href="#more-services"
+              className="btn btn-ghost motion-safe:animate-bounce hover:motion-safe:animate-none"
+            >
               See more services ↓
             </a>
           </div>
