@@ -17,8 +17,8 @@ export default function App() {
       <Services />
       <Portfolio />
       <Testimonials />
-      {/* <CTA /> */}
-      <Contact />
+      <CTA />
+      {/* <Contact /> */}
       <Footer />
     </>
   );
