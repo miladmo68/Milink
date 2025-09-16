@@ -13,7 +13,7 @@ export default function App() {
     <>
       {/* <Navbar /> */}
       {/* <Hero /> */}
-      <About />
+      {/* <About /> */}
       <Services />
       <Portfolio />
       <Testimonials />
