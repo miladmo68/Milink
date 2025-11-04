@@ -12,7 +12,7 @@ export default function App() {
   return (
     <>
       // <Navbar />
-      {/* <Hero /> */}
+      <Hero />
       {/* <About /> */}
       <Services />
       <Portfolio />
