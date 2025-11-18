@@ -15,7 +15,7 @@ export default function App() {
       {/* <Hero /> */}
       {/* <About /> */}
       {/* <Services /> */}
-      {/* <Portfolio /> */}
+      <Portfolio />
       <Testimonials />
       <CTA />
       <Contact />
