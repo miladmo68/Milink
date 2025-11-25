@@ -12,14 +12,14 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <Hero />
+      {/* <Hero /> */}
       {/* <About /> */}
-      <Services />
-      <Portfolio />
-      <Testimonials />
-      <CTA />
-      <Contact />
-      <Footer />
+      {/* <Services /> */}
+      {/* <Portfolio /> */}
+      {/* <Testimonials /> */}
+      {/* <CTA /> */}
+      {/* <Contact /> */}
+      {/* <Footer /> */}
     </>
   );
 }
